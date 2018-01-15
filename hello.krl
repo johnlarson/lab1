@@ -21,10 +21,10 @@ A first ruleset for the Quickstart
     send_directive("say", {"something": "Hello World"})
   }
 
-  rule monkey {
-    select when echo monkey
+  rule monkey_defaults_to {
+    select when echo monkey_d
     pre {
-      name = "Monkey"
+      name = event:attr("name").defaultsTo("Monkey")
       message = "Hello " + name
     }
     send_directive("say", {"msg": message})
