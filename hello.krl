@@ -29,5 +29,14 @@ A first ruleset for the Quickstart
     }
     send_directive("say", {"msg": message})
   }
+
+  rule monkey_ternary {
+    select when echo monkey_t
+    pre {
+      name = event:attr("name") => event:attr("name") | "Monkey"
+      message = "Hello " + name
+    }
+    send_directive("say", {"msg": message})
+  }
   
 }
